@@ -3,7 +3,7 @@ class GrapeVarietalsController < ApplicationController
 
   # GET /grape_varietals
   def index
-    @grape_varietals = GrapeVarietal.all
+    @grape_varietals = GrapeVarietal.page(params[:page]).per(10)
   end
 
   # GET /grape_varietals/1

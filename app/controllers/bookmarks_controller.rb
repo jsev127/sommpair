@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.page(params[:page]).per(10)
   end
 
   # GET /bookmarks/1

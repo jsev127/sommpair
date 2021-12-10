@@ -3,7 +3,7 @@ class RegionsController < ApplicationController
 
   # GET /regions
   def index
-    @regions = Region.all
+    @regions = Region.page(params[:page]).per(10)
   end
 
   # GET /regions/1

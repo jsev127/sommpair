@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
 
   # GET /countries
   def index
-    @countries = Country.all
+    @countries = Country.page(params[:page]).per(10)
   end
 
   # GET /countries/1

@@ -3,7 +3,7 @@ class WinesController < ApplicationController
 
   # GET /wines
   def index
-    @wines = Wine.all
+    @wines = Wine.page(params[:page]).per(10)
   end
 
   # GET /wines/1
