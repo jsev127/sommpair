@@ -13,7 +13,7 @@ class Api::V1::UserProfilesController < Api::V1::GraphitiController
     user_profile = UserProfileResource.build(params)
 
     if user_profile.save
-      render jsonapi: user_profile, status: 201
+      render jsonapi: user_profile, status: :created
     else
       render jsonapi_errors: user_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::UserProfilesController < Api::V1::GraphitiController
     user_profile = UserProfileResource.find(params)
 
     if user_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: user_profile
     end

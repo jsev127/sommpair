@@ -8,16 +8,16 @@ class Wine < ApplicationRecord
   belongs_to :winery
 
   has_many   :reviews,
-             :dependent => :nullify
+             dependent: :nullify
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :reviewers,
-             :through => :reviews,
-             :source => :user
+             through: :reviews,
+             source: :user
 
   # Validations
 
@@ -26,5 +26,4 @@ class Wine < ApplicationRecord
   def to_s
     winery.to_s
   end
-
 end

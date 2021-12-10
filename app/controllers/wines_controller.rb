@@ -1,10 +1,11 @@
 class WinesController < ApplicationController
-  before_action :set_wine, only: [:show, :edit, :update, :destroy]
+  before_action :set_wine, only: %i[show edit update destroy]
 
   # GET /wines
   def index
     @q = Wine.ransack(params[:q])
-    @wines = @q.result(:distinct => true).includes(:bookmarks, :reviews, :winery, :grape_varietal, :category, :reviewers).page(params[:page]).per(10)
+    @wines = @q.result(distinct: true).includes(:bookmarks, :reviews,
+                                                :winery, :grape_varietal, :category, :reviewers).page(params[:page]).per(10)
   end
 
   # GET /wines/1
@@ -19,17 +20,16 @@ class WinesController < ApplicationController
   end
 
   # GET /wines/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /wines
   def create
     @wine = Wine.new(wine_params)
 
     if @wine.save
-      message = 'Wine was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Wine was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @wine, notice: message
       end
@@ -41,7 +41,7 @@ class WinesController < ApplicationController
   # PATCH/PUT /wines/1
   def update
     if @wine.update(wine_params)
-      redirect_to @wine, notice: 'Wine was successfully updated.'
+      redirect_to @wine, notice: "Wine was successfully updated."
     else
       render :edit
     end
@@ -51,22 +51,23 @@ class WinesController < ApplicationController
   def destroy
     @wine.destroy
     message = "Wine was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to wines_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_wine
-      @wine = Wine.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def wine_params
-      params.require(:wine).permit(:winery_id, :grape_varietal_id, :vintage, :category_id, :description_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_wine
+    @wine = Wine.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def wine_params
+    params.require(:wine).permit(:winery_id, :grape_varietal_id, :vintage,
+                                 :category_id, :description_id)
+  end
 end

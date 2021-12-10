@@ -14,5 +14,4 @@ class WineryResource < ApplicationResource
   has_many   :wines
 
   # Indirect associations
-
 end

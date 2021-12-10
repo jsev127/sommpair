@@ -1,6 +1,5 @@
 ActiveAdmin.register Winery do
-
- permit_params :name, :address, :website, :region_id
+  permit_params :name, :address, :website, :region_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register Winery do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

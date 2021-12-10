@@ -2,7 +2,7 @@ class Country < ApplicationRecord
   # Direct associations
 
   has_many   :regions,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Country < ApplicationRecord
   def to_s
     name
   end
-
 end

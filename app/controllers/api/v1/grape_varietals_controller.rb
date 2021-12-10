@@ -13,7 +13,7 @@ class Api::V1::GrapeVarietalsController < Api::V1::GraphitiController
     grape_varietal = GrapeVarietalResource.build(params)
 
     if grape_varietal.save
-      render jsonapi: grape_varietal, status: 201
+      render jsonapi: grape_varietal, status: :created
     else
       render jsonapi_errors: grape_varietal
     end
@@ -33,7 +33,7 @@ class Api::V1::GrapeVarietalsController < Api::V1::GraphitiController
     grape_varietal = GrapeVarietalResource.find(params)
 
     if grape_varietal.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: grape_varietal
     end

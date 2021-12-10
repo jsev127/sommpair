@@ -2,7 +2,7 @@ class GrapeVarietal < ApplicationRecord
   # Direct associations
 
   has_many   :wines,
-             :dependent => :nullify
+             dependent: :nullify
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class GrapeVarietal < ApplicationRecord
   def to_s
     name
   end
-
 end

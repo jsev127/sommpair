@@ -6,8 +6,7 @@ class CountryResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :regions
+  has_many :regions
 
   # Indirect associations
-
 end

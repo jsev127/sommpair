@@ -4,7 +4,7 @@ class Region < ApplicationRecord
   belongs_to :country
 
   has_many   :wineries,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Region < ApplicationRecord
   def to_s
     name
   end
-
 end

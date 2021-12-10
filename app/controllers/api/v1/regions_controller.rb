@@ -13,7 +13,7 @@ class Api::V1::RegionsController < Api::V1::GraphitiController
     region = RegionResource.build(params)
 
     if region.save
-      render jsonapi: region, status: 201
+      render jsonapi: region, status: :created
     else
       render jsonapi_errors: region
     end
@@ -33,7 +33,7 @@ class Api::V1::RegionsController < Api::V1::GraphitiController
     region = RegionResource.find(params)
 
     if region.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: region
     end

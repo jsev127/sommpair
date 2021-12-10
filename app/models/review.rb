@@ -2,10 +2,10 @@ class Review < ApplicationRecord
   # Direct associations
 
   belongs_to :wine,
-             :counter_cache => true
+             counter_cache: true
 
   belongs_to :user,
-             :class_name => "UserProfile"
+             class_name: "UserProfile"
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Review < ApplicationRecord
   def to_s
     wine.to_s
   end
-
 end

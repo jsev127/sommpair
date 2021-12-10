@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe RegionResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'regions',
-          attributes: { }
-        }
+          type: "regions",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe RegionResource, type: :resource do
       RegionResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { Region.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { Region.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:region) { create(:region) }
 
     let(:payload) do
       {
         data: {
           id: region.id.to_s,
-          type: 'regions',
-          attributes: { } # Todo!
-        }
+          type: "regions",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe RegionResource, type: :resource do
       RegionResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { region.reload.updated_at }
+      end.to change { region.reload.updated_at }
       # .and change { region.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:region) { create(:region) }
 
     let(:instance) do
       RegionResource.find(id: region.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { Region.count }.by(-1)
+      end.to change { Region.count }.by(-1)
     end
   end
 end

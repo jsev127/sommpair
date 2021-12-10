@@ -4,7 +4,7 @@ class Bookmark < ApplicationRecord
   belongs_to :wine
 
   belongs_to :user,
-             :class_name => "UserProfile"
+             class_name: "UserProfile"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Bookmark < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

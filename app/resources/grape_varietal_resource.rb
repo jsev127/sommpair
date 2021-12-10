@@ -6,8 +6,7 @@ class GrapeVarietalResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :wines
+  has_many :wines
 
   # Indirect associations
-
 end

@@ -13,7 +13,7 @@ class Api::V1::CountriesController < Api::V1::GraphitiController
     country = CountryResource.build(params)
 
     if country.save
-      render jsonapi: country, status: 201
+      render jsonapi: country, status: :created
     else
       render jsonapi_errors: country
     end
@@ -33,7 +33,7 @@ class Api::V1::CountriesController < Api::V1::GraphitiController
     country = CountryResource.find(params)
 
     if country.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: country
     end

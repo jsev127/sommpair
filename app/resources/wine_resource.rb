@@ -24,5 +24,4 @@ class WineResource < ApplicationResource
 
   many_to_many :reviewers,
                resource: UserProfileResource
-
 end

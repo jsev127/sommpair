@@ -13,7 +13,7 @@ class Api::V1::WineriesController < Api::V1::GraphitiController
     winery = WineryResource.build(params)
 
     if winery.save
-      render jsonapi: winery, status: 201
+      render jsonapi: winery, status: :created
     else
       render jsonapi_errors: winery
     end
@@ -33,7 +33,7 @@ class Api::V1::WineriesController < Api::V1::GraphitiController
     winery = WineryResource.find(params)
 
     if winery.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: winery
     end
