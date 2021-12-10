@@ -10,6 +10,9 @@ class UserProfileResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :bookmarks,
+             foreign_key: :user_id
+
   # Indirect associations
 
 end
