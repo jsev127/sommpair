@@ -42,7 +42,7 @@
 
     <%= f.label :grape_varietal_id %>
     <!-- Input for grape_varietal_id start -->
-    <%= f.number_field :grape_varietal_id, class: grape_varietal_class, placeholder: "Enter grape varietal" %>
+    <%= f.collection_select :grape_varietal_id, GrapeVarietal.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for grape_varietal_id end -->
     <% if grape_varietal_was_invalid %>
       <% wine.errors.full_messages_for(:grape_varietal).each do |message| %>
