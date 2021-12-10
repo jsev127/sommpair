@@ -42,8 +42,14 @@ class RegionsController < ApplicationController
   # DELETE /regions/1
   def destroy
     @region.destroy
-    redirect_to regions_url, notice: 'Region was successfully destroyed.'
+    message = "Region was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to regions_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
