@@ -28,6 +28,10 @@ class Winery < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :country,
+             through: :region,
+             source: :country
+
   # Validations
 
   # Scopes

@@ -14,4 +14,12 @@ class WineryResource < ApplicationResource
   has_many   :wines
 
   # Indirect associations
+
+  has_one    :country
+
+  filter :country_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:country).where(regions: { country_id: value })
+    end
+  end
 end
