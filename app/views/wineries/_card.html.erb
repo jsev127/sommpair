@@ -12,7 +12,11 @@
 
       <dt>Address</dt>
       <!-- Display address start -->
-      <dd><%= winery.address %></dd>
+      <dd>
+        <div>
+          <%= render partial: "wineries/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display address end -->
 
       <dt>Website</dt>

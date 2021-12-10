@@ -4,6 +4,11 @@ class WineriesController < ApplicationController
   # GET /wineries
   def index
     @wineries = Winery.all
+    @location_hash = Gmaps4rails.build_markers(@wineries.where.not(:address_latitude => nil)) do |winery, marker|
+      marker.lat winery.address_latitude
+      marker.lng winery.address_longitude
+      marker.infowindow "<h5><a href='/wineries/#{winery.id}'>#{winery.name}</a></h5><small>#{winery.address_formatted_address}</small>"
+    end
   end
 
   # GET /wineries/1
