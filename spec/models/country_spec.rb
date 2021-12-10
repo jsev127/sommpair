@@ -6,6 +6,7 @@ RSpec.describe Country, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_many(:wineries) }
   end
 
   describe "Validations" do

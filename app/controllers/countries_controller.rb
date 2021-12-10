@@ -3,7 +3,8 @@ class CountriesController < ApplicationController
 
   def index
     @q = Country.ransack(params[:q])
-    @countries = @q.result(distinct: true).includes(:regions).page(params[:page]).per(10)
+    @countries = @q.result(distinct: true).includes(:regions,
+                                                    :wineries).page(params[:page]).per(10)
   end
 
   def show

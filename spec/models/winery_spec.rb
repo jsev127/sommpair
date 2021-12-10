@@ -8,6 +8,7 @@ RSpec.describe Winery, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_one(:country) }
   end
 
   describe "Validations" do

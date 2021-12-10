@@ -6,6 +6,10 @@ class Country < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :wineries,
+             through: :regions,
+             source: :wineries
+
   # Validations
 
   # Scopes
