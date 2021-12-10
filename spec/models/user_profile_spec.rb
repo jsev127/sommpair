@@ -4,6 +4,8 @@ RSpec.describe UserProfile, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:bookmarks) }
+
     end
 
     describe "InDirect Associations" do
