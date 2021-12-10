@@ -1,6 +1,9 @@
 class Wine < ApplicationRecord
   # Direct associations
 
+  has_many   :reviews,
+             :dependent => :nullify
+
   has_many   :bookmarks,
              :dependent => :destroy
 
