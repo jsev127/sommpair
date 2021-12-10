@@ -94,7 +94,7 @@
 
     <%= f.label :region_id %>
     <!-- Input for region_id start -->
-    <%= f.number_field :region_id, class: region_class, placeholder: "Enter region" %>
+    <%= f.collection_select :region_id, Region.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for region_id end -->
     <% if region_was_invalid %>
       <% winery.errors.full_messages_for(:region).each do |message| %>
