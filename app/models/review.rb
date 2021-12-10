@@ -1,6 +1,9 @@
 class Review < ApplicationRecord
   # Direct associations
 
+  belongs_to :user,
+             :class_name => "UserProfile"
+
   # Indirect associations
 
   # Validations
