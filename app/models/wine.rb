@@ -1,6 +1,8 @@
 class Wine < ApplicationRecord
   # Direct associations
 
+  belongs_to :winery
+
   has_many   :reviews,
              :dependent => :nullify
 

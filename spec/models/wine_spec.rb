@@ -4,6 +4,8 @@ RSpec.describe Wine, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:winery) }
+
     it { should have_many(:reviews) }
 
     it { should have_many(:bookmarks) }
