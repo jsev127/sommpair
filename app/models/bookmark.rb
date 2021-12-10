@@ -1,6 +1,8 @@
 class Bookmark < ApplicationRecord
   # Direct associations
 
+  belongs_to :wine
+
   belongs_to :user,
              :class_name => "UserProfile"
 
