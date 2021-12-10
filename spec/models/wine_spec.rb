@@ -18,6 +18,8 @@ RSpec.describe Wine, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:reviewers) }
+
     end
 
     describe "Validations" do

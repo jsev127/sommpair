@@ -11,6 +11,10 @@ class UserProfile < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :wines_tasted,
+             :through => :reviews,
+             :source => :wine
+
   # Validations
 
   validates :username, :presence => true

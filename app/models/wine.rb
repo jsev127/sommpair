@@ -15,6 +15,10 @@ class Wine < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :reviewers,
+             :through => :reviews,
+             :source => :user
+
   # Validations
 
   # Scopes

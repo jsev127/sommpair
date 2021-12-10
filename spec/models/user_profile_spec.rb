@@ -12,6 +12,8 @@ RSpec.describe UserProfile, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:wines_tasted) }
+
     end
 
     describe "Validations" do
