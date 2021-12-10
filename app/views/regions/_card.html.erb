@@ -6,18 +6,14 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= region.name %></dd>
-      <!-- Display name end -->
 
       <dt>Country</dt>
-      <!-- Display country_id start -->
       <dd>
         <% if @region.country.present? %>
           <%= link_to region.country, region.country %>
         <% end %>
       </dd>
-      <!-- Display country_id end -->
 
     </dl>
 
@@ -26,21 +22,17 @@
         <%= link_to_show_or_back region, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link region start -->
       <div class="col">
         <%= link_to edit_region_url(region), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link region end -->
 
-      <!-- Delete link region start -->
       <div class="col">
         <%= link_to region, method: :delete, data: { confirm: "Do you really want to delete this region?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link region end -->
     </div>
   </div>
 

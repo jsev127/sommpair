@@ -1,52 +1,30 @@
-<!-- Form wine start -->
 <%= form_with(model: @wine, local: true) do |f| %>
-<!-- Form wine end -->
 
-  <!-- Label and input for winery_id start -->
   <div class="form-group">
     <%= f.label :winery_id %>
 
-    <!-- Input for winery_id start -->
     <%= f.collection_select :winery_id, Winery.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for winery_id end -->
   </div>
-  <!-- Label and input for winery_id end -->
 
-  <!-- Label and input for grape_varietal_id start -->
   <div class="form-group">
     <%= f.label :grape_varietal_id %>
 
-    <!-- Input for grape_varietal_id start -->
     <%= f.collection_select :grape_varietal_id, GrapeVarietal.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for grape_varietal_id end -->
   </div>
-  <!-- Label and input for grape_varietal_id end -->
 
-  <!-- Label and input for vintage start -->
   <div class="form-group">
     <%= f.label :vintage %>
 
-    <!-- Input for vintage start -->
     <%= f.text_field :vintage, class: "form-control" %>
-    <!-- Input for vintage end -->
   </div>
-  <!-- Label and input for vintage end -->
 
-  <!-- Label and input for category_id start -->
-  <!-- Input for category_id start -->
   <%= f.hidden_field :category_id, value: @category.id %>
-  <!-- Input for category_id end -->
-  <!-- Label and input for category_id end -->
 
-  <!-- Label and input for description_id start -->
   <div class="form-group">
     <%= f.label :description_id %>
 
-    <!-- Input for description_id start -->
     <%= f.text_field :description_id, class: "form-control" %>
-    <!-- Input for description_id end -->
   </div>
-  <!-- Label and input for description_id end -->
 
   <%= f.submit "Create wine", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

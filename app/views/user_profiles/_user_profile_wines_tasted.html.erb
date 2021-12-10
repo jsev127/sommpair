@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @user_profile.wines_tasted.each do |wine| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/wines/<%= wine.id %>">
           <%= wine %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

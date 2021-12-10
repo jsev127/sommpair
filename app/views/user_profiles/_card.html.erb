@@ -6,19 +6,13 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>First name</dt>
-      <!-- Display first_name start -->
       <dd><%= user_profile.first_name %></dd>
-      <!-- Display first_name end -->
 
       <dt>Last name</dt>
-      <!-- Display last_name start -->
       <dd><%= user_profile.last_name %></dd>
-      <!-- Display last_name end -->
 
       <dt>Username</dt>
-      <!-- Display username start -->
       <dd><%= user_profile.username %></dd>
-      <!-- Display username end -->
 
     </dl>
 
@@ -27,21 +21,17 @@
         <%= link_to_show_or_back user_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link user_profile start -->
       <div class="col">
         <%= link_to edit_user_profile_url(user_profile), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link user_profile end -->
 
-      <!-- Delete link user_profile start -->
       <div class="col">
         <%= link_to user_profile, method: :delete, data: { confirm: "Do you really want to delete this user_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link user_profile end -->
     </div>
   </div>
 

@@ -1,12 +1,7 @@
 <% was_validated = bookmark.errors.any? %>
 
 <%= form_with(model: bookmark, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user_profile.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for wine_id start -->
   <div class="form-group">
     <% wine_class = "form-control" %>
     <% wine_was_invalid = bookmark.errors.include?(:wine) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :wine_id %>
-    <!-- Input for wine_id start -->
     <%= f.collection_select :wine_id, Wine.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for wine_id end -->
     <% if wine_was_invalid %>
       <% bookmark.errors.full_messages_for(:wine).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,6 +24,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for wine_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
