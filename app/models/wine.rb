@@ -1,6 +1,8 @@
 class Wine < ApplicationRecord
   # Direct associations
 
+  belongs_to :grape_varietal
+
   belongs_to :winery
 
   has_many   :reviews,

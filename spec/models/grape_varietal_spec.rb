@@ -4,6 +4,8 @@ RSpec.describe GrapeVarietal, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:wines) }
+
     end
 
     describe "InDirect Associations" do
