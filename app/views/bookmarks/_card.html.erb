@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= bookmark.user_id %></dd>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <%= link_to bookmark.user, bookmark.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Wine</dt>
       <!-- Display wine_id start -->
-      <dd><%= bookmark.wine_id %></dd>
+      <dd>
+        <% if @bookmark.wine.present? %>
+          <%= link_to bookmark.wine, bookmark.wine %>
+        <% end %>
+      </dd>
       <!-- Display wine_id end -->
 
     </dl>

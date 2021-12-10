@@ -26,7 +26,11 @@
 
       <dt>Region</dt>
       <!-- Display region_id start -->
-      <dd><%= winery.region_id %></dd>
+      <dd>
+        <% if @winery.region.present? %>
+          <%= link_to winery.region, winery.region %>
+        <% end %>
+      </dd>
       <!-- Display region_id end -->
 
     </dl>

@@ -12,7 +12,11 @@
 
       <dt>Country</dt>
       <!-- Display country_id start -->
-      <dd><%= region.country_id %></dd>
+      <dd>
+        <% if @region.country.present? %>
+          <%= link_to region.country, region.country %>
+        <% end %>
+      </dd>
       <!-- Display country_id end -->
 
     </dl>
