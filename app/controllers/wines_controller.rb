@@ -3,7 +3,8 @@ class WinesController < ApplicationController
 
   # GET /wines
   def index
-    @wines = Wine.page(params[:page]).per(10)
+    @q = Wine.ransack(params[:q])
+    @wines = @q.result(:distinct => true).includes(:bookmarks, :reviews, :winery, :grape_varietal, :category, :reviewers).page(params[:page]).per(10)
   end
 
   # GET /wines/1

@@ -3,7 +3,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    @reviews = Review.page(params[:page]).per(10)
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result(:distinct => true).includes(:user, :wine).page(params[:page]).per(10)
   end
 
   # GET /reviews/1

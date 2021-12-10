@@ -3,7 +3,8 @@ class WineriesController < ApplicationController
 
   # GET /wineries
   def index
-    @wineries = Winery.page(params[:page]).per(10)
+    @q = Winery.ransack(params[:q])
+    @wineries = @q.result(:distinct => true).includes(:wines, :region).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@wineries.where.not(:address_latitude => nil)) do |winery, marker|
       marker.lat winery.address_latitude
       marker.lng winery.address_longitude

@@ -3,7 +3,8 @@ class GrapeVarietalsController < ApplicationController
 
   # GET /grape_varietals
   def index
-    @grape_varietals = GrapeVarietal.page(params[:page]).per(10)
+    @q = GrapeVarietal.ransack(params[:q])
+    @grape_varietals = @q.result(:distinct => true).includes(:wines).page(params[:page]).per(10)
   end
 
   # GET /grape_varietals/1

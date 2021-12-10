@@ -3,7 +3,8 @@ class RegionsController < ApplicationController
 
   # GET /regions
   def index
-    @regions = Region.page(params[:page]).per(10)
+    @q = Region.ransack(params[:q])
+    @regions = @q.result(:distinct => true).includes(:wineries, :country).page(params[:page]).per(10)
   end
 
   # GET /regions/1
