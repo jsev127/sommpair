@@ -1,6 +1,9 @@
 class Country < ApplicationRecord
   # Direct associations
 
+  has_many   :regions,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
