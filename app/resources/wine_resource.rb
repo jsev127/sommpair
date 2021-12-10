@@ -22,4 +22,7 @@ class WineResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :reviewers,
+               resource: UserProfileResource
+
 end

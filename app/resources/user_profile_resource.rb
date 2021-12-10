@@ -18,4 +18,7 @@ class UserProfileResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :wines_tasted,
+               resource: WineResource
+
 end
