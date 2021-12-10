@@ -10,6 +10,8 @@ class WineResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :reviews
+
   has_many   :bookmarks
 
   # Indirect associations

@@ -9,6 +9,8 @@ class ReviewResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :wine
+
   belongs_to :user,
              resource: UserProfileResource
 
