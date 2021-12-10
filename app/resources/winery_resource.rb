@@ -9,6 +9,8 @@ class WineryResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :region
+
   has_many   :wines
 
   # Indirect associations
