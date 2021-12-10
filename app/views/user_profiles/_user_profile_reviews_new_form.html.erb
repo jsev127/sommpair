@@ -7,7 +7,7 @@
     <%= f.label :wine_id %>
 
     <!-- Input for wine_id start -->
-    <%= f.text_field :wine_id, class: "form-control" %>
+    <%= f.collection_select :wine_id, Wine.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for wine_id end -->
   </div>
   <!-- Label and input for wine_id end -->
