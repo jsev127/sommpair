@@ -16,7 +16,7 @@
 
     <%= f.label :winery_id %>
     <!-- Input for winery_id start -->
-    <%= f.number_field :winery_id, class: winery_class, placeholder: "Enter winery" %>
+    <%= f.collection_select :winery_id, Winery.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for winery_id end -->
     <% if winery_was_invalid %>
       <% wine.errors.full_messages_for(:winery).each do |message| %>
