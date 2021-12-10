@@ -1,0 +1,109 @@
+<% was_validated = review.errors.any? %>
+
+<%= form_with(model: review, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for wine_id start -->
+  <div class="form-group">
+    <% wine_class = "form-control" %>
+    <% wine_was_invalid = review.errors.include?(:wine) %>
+
+    <% if was_validated %>
+      <% if wine_was_invalid %>
+        <% wine_class << " is-invalid" %>
+      <% else %>
+        <% wine_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :wine_id %>
+    <!-- Input for wine_id start -->
+    <%= f.number_field :wine_id, class: wine_class, placeholder: "Enter wine" %>
+    <!-- Input for wine_id end -->
+    <% if wine_was_invalid %>
+      <% review.errors.full_messages_for(:wine).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for wine_id end -->
+  <!-- Label and input for comment start -->
+  <div class="form-group">
+    <% comment_class = "form-control" %>
+    <% comment_was_invalid = review.errors.include?(:comment) %>
+
+    <% if was_validated %>
+      <% if comment_was_invalid %>
+        <% comment_class << " is-invalid" %>
+      <% else %>
+        <% comment_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :comment %>
+    <!-- Input for comment start -->
+    <%= f.text_area :comment, class: comment_class, placeholder: "Enter comment" %>
+    <!-- Input for comment end -->
+    <% if comment_was_invalid %>
+      <% review.errors.full_messages_for(:comment).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for comment end -->
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <% rating_class = "form-control" %>
+    <% rating_was_invalid = review.errors.include?(:rating) %>
+
+    <% if was_validated %>
+      <% if rating_was_invalid %>
+        <% rating_class << " is-invalid" %>
+      <% else %>
+        <% rating_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :rating %>
+    <!-- Input for rating start -->
+    <%= f.text_field :rating, class: rating_class, placeholder: "Enter rating" %>
+    <!-- Input for rating end -->
+    <% if rating_was_invalid %>
+      <% review.errors.full_messages_for(:rating).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for rating end -->
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = review.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% review.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
