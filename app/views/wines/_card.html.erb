@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Wine #<%= wine.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Winery</dt>
+      <!-- Display winery_id start -->
+      <dd><%= wine.winery_id %></dd>
+      <!-- Display winery_id end -->
+
+      <dt>Grape varietal</dt>
+      <!-- Display grape_varietal_id start -->
+      <dd><%= wine.grape_varietal_id %></dd>
+      <!-- Display grape_varietal_id end -->
+
+      <dt>Vintage</dt>
+      <!-- Display vintage start -->
+      <dd><%= wine.vintage %></dd>
+      <!-- Display vintage end -->
+
+      <dt>Category</dt>
+      <!-- Display category_id start -->
+      <dd><%= wine.category_id %></dd>
+      <!-- Display category_id end -->
+
+      <dt>Description</dt>
+      <!-- Display description_id start -->
+      <dd><%= wine.description_id %></dd>
+      <!-- Display description_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back wine, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link wine start -->
+      <div class="col">
+        <%= link_to edit_wine_url(wine), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link wine end -->
+
+      <!-- Delete link wine start -->
+      <div class="col">
+        <%= link_to wine, method: :delete, data: { confirm: "Do you really want to delete this wine?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link wine end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(wine.updated_at) %> ago
+  </div>
+</div>

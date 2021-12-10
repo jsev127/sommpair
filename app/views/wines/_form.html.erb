@@ -1,0 +1,135 @@
+<% was_validated = wine.errors.any? %>
+
+<%= form_with(model: wine, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for winery_id start -->
+  <div class="form-group">
+    <% winery_class = "form-control" %>
+    <% winery_was_invalid = wine.errors.include?(:winery) %>
+
+    <% if was_validated %>
+      <% if winery_was_invalid %>
+        <% winery_class << " is-invalid" %>
+      <% else %>
+        <% winery_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :winery_id %>
+    <!-- Input for winery_id start -->
+    <%= f.number_field :winery_id, class: winery_class, placeholder: "Enter winery" %>
+    <!-- Input for winery_id end -->
+    <% if winery_was_invalid %>
+      <% wine.errors.full_messages_for(:winery).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for winery_id end -->
+  <!-- Label and input for grape_varietal_id start -->
+  <div class="form-group">
+    <% grape_varietal_class = "form-control" %>
+    <% grape_varietal_was_invalid = wine.errors.include?(:grape_varietal) %>
+
+    <% if was_validated %>
+      <% if grape_varietal_was_invalid %>
+        <% grape_varietal_class << " is-invalid" %>
+      <% else %>
+        <% grape_varietal_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :grape_varietal_id %>
+    <!-- Input for grape_varietal_id start -->
+    <%= f.number_field :grape_varietal_id, class: grape_varietal_class, placeholder: "Enter grape varietal" %>
+    <!-- Input for grape_varietal_id end -->
+    <% if grape_varietal_was_invalid %>
+      <% wine.errors.full_messages_for(:grape_varietal).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for grape_varietal_id end -->
+  <!-- Label and input for vintage start -->
+  <div class="form-group">
+    <% vintage_class = "form-control" %>
+    <% vintage_was_invalid = wine.errors.include?(:vintage) %>
+
+    <% if was_validated %>
+      <% if vintage_was_invalid %>
+        <% vintage_class << " is-invalid" %>
+      <% else %>
+        <% vintage_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :vintage %>
+    <!-- Input for vintage start -->
+    <%= f.number_field :vintage, class: vintage_class, placeholder: "Enter vintage" %>
+    <!-- Input for vintage end -->
+    <% if vintage_was_invalid %>
+      <% wine.errors.full_messages_for(:vintage).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for vintage end -->
+  <!-- Label and input for category_id start -->
+  <div class="form-group">
+    <% category_class = "form-control" %>
+    <% category_was_invalid = wine.errors.include?(:category) %>
+
+    <% if was_validated %>
+      <% if category_was_invalid %>
+        <% category_class << " is-invalid" %>
+      <% else %>
+        <% category_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :category_id %>
+    <!-- Input for category_id start -->
+    <%= f.number_field :category_id, class: category_class, placeholder: "Enter category" %>
+    <!-- Input for category_id end -->
+    <% if category_was_invalid %>
+      <% wine.errors.full_messages_for(:category).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for category_id end -->
+  <!-- Label and input for description_id start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = wine.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description_id %>
+    <!-- Input for description_id start -->
+    <%= f.number_field :description_id, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description_id end -->
+    <% if description_was_invalid %>
+      <% wine.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
