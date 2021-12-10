@@ -8,6 +8,7 @@ class GrapeVarietalsController < ApplicationController
 
   # GET /grape_varietals/1
   def show
+    @wine = Wine.new
   end
 
   # GET /grape_varietals/new

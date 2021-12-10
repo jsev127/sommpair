@@ -1,0 +1,22 @@
+<!-- Form bookmark start -->
+<%= form_with(model: @bookmark, local: true) do |f| %>
+<!-- Form bookmark end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user_profile.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for wine_id start -->
+  <div class="form-group">
+    <%= f.label :wine_id %>
+
+    <!-- Input for wine_id start -->
+    <%= f.text_field :wine_id, class: "form-control" %>
+    <!-- Input for wine_id end -->
+  </div>
+  <!-- Label and input for wine_id end -->
+
+  <%= f.submit "Create bookmark", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

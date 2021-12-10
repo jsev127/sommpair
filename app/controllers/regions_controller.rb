@@ -8,6 +8,7 @@ class RegionsController < ApplicationController
 
   # GET /regions/1
   def show
+    @winery = Winery.new
   end
 
   # GET /regions/new
@@ -24,7 +25,12 @@ class RegionsController < ApplicationController
     @region = Region.new(region_params)
 
     if @region.save
-      redirect_to @region, notice: 'Region was successfully created.'
+      message = 'Region was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @region, notice: message
+      end
     else
       render :new
     end

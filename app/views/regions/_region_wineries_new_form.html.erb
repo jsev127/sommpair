@@ -1,0 +1,41 @@
+<!-- Form winery start -->
+<%= form_with(model: @winery, local: true) do |f| %>
+<!-- Form winery end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for address start -->
+  <div class="form-group">
+    <%= f.label :address %>
+
+    <!-- Input for address start -->
+    <%= f.text_field :address, class: "form-control" %>
+    <!-- Input for address end -->
+  </div>
+  <!-- Label and input for address end -->
+
+  <!-- Label and input for website start -->
+  <div class="form-group">
+    <%= f.label :website %>
+    <!-- Input for website start -->
+    <%= f.text_area :website, rows: "3", class: "form-control" %>
+    <!-- Input for website end -->
+  </div>
+  <!-- Label and input for website end -->
+
+  <!-- Label and input for region_id start -->
+  <!-- Input for region_id start -->
+  <%= f.hidden_field :region_id, value: @region.id %>
+  <!-- Input for region_id end -->
+  <!-- Label and input for region_id end -->
+
+  <%= f.submit "Create winery", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

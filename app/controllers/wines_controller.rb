@@ -8,6 +8,8 @@ class WinesController < ApplicationController
 
   # GET /wines/1
   def show
+    @review = Review.new
+    @bookmark = Bookmark.new
   end
 
   # GET /wines/new
@@ -24,7 +26,12 @@ class WinesController < ApplicationController
     @wine = Wine.new(wine_params)
 
     if @wine.save
-      redirect_to @wine, notice: 'Wine was successfully created.'
+      message = 'Wine was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @wine, notice: message
+      end
     else
       render :new
     end

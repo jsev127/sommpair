@@ -8,6 +8,7 @@ class WineriesController < ApplicationController
 
   # GET /wineries/1
   def show
+    @wine = Wine.new
   end
 
   # GET /wineries/new
@@ -24,7 +25,12 @@ class WineriesController < ApplicationController
     @winery = Winery.new(winery_params)
 
     if @winery.save
-      redirect_to @winery, notice: 'Winery was successfully created.'
+      message = 'Winery was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @winery, notice: message
+      end
     else
       render :new
     end

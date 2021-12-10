@@ -8,6 +8,8 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/1
   def show
+    @review = Review.new
+    @bookmark = Bookmark.new
   end
 
   # GET /user_profiles/new

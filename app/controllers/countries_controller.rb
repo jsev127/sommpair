@@ -8,6 +8,7 @@ class CountriesController < ApplicationController
 
   # GET /countries/1
   def show
+    @region = Region.new
   end
 
   # GET /countries/new
