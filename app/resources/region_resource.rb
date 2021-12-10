@@ -7,6 +7,8 @@ class RegionResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :country
+
   has_many   :wineries
 
   # Indirect associations
