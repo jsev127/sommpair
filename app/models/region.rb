@@ -1,6 +1,9 @@
 class Region < ApplicationRecord
   # Direct associations
 
+  has_many   :wineries,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

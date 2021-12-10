@@ -4,6 +4,8 @@ RSpec.describe Region, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:wineries) }
+
     end
 
     describe "InDirect Associations" do

@@ -4,6 +4,8 @@ RSpec.describe Winery, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:region) }
+
     it { should have_many(:wines) }
 
     end

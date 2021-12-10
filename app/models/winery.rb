@@ -1,6 +1,8 @@
 class Winery < ApplicationRecord
   # Direct associations
 
+  belongs_to :region
+
   has_many   :wines,
              :dependent => :nullify
 
