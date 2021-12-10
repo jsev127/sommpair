@@ -1,0 +1,57 @@
+<% was_validated = region.errors.any? %>
+
+<%= form_with(model: region, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = region.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% region.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for country_id start -->
+  <div class="form-group">
+    <% country_class = "form-control" %>
+    <% country_was_invalid = region.errors.include?(:country) %>
+
+    <% if was_validated %>
+      <% if country_was_invalid %>
+        <% country_class << " is-invalid" %>
+      <% else %>
+        <% country_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :country_id %>
+    <!-- Input for country_id start -->
+    <%= f.number_field :country_id, class: country_class, placeholder: "Enter country" %>
+    <!-- Input for country_id end -->
+    <% if country_was_invalid %>
+      <% region.errors.full_messages_for(:country).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for country_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
