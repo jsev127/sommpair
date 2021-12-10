@@ -42,7 +42,7 @@
 
     <%= f.label :wine_id %>
     <!-- Input for wine_id start -->
-    <%= f.number_field :wine_id, class: wine_class, placeholder: "Enter wine" %>
+    <%= f.collection_select :wine_id, Wine.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for wine_id end -->
     <% if wine_was_invalid %>
       <% bookmark.errors.full_messages_for(:wine).each do |message| %>
