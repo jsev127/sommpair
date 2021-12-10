@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :countries
   resources :regions
   resources :grape_varietals
