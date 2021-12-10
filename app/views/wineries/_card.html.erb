@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Winery #<%= winery.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= winery.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Address</dt>
+      <!-- Display address start -->
+      <dd><%= winery.address %></dd>
+      <!-- Display address end -->
+
+      <dt>Website</dt>
+      <!-- Display website start -->
+      <dd><%= winery.website %></dd>
+      <!-- Display website end -->
+
+      <dt>Region</dt>
+      <!-- Display region_id start -->
+      <dd><%= winery.region_id %></dd>
+      <!-- Display region_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back winery, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link winery start -->
+      <div class="col">
+        <%= link_to edit_winery_url(winery), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link winery end -->
+
+      <!-- Delete link winery start -->
+      <div class="col">
+        <%= link_to winery, method: :delete, data: { confirm: "Do you really want to delete this winery?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link winery end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(winery.updated_at) %> ago
+  </div>
+</div>

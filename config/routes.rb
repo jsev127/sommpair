@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :wineries
   resources :wines
   devise_for :user_profiles
   resources :user_profiles

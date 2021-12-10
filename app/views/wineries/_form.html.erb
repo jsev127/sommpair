@@ -1,0 +1,109 @@
+<% was_validated = winery.errors.any? %>
+
+<%= form_with(model: winery, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = winery.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% winery.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for address start -->
+  <div class="form-group">
+    <% address_class = "form-control" %>
+    <% address_was_invalid = winery.errors.include?(:address) %>
+
+    <% if was_validated %>
+      <% if address_was_invalid %>
+        <% address_class << " is-invalid" %>
+      <% else %>
+        <% address_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :address %>
+    <!-- Input for address start -->
+    <%= f.text_field :address, class: address_class, placeholder: "Enter address" %>
+    <!-- Input for address end -->
+    <% if address_was_invalid %>
+      <% winery.errors.full_messages_for(:address).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for address end -->
+  <!-- Label and input for website start -->
+  <div class="form-group">
+    <% website_class = "form-control" %>
+    <% website_was_invalid = winery.errors.include?(:website) %>
+
+    <% if was_validated %>
+      <% if website_was_invalid %>
+        <% website_class << " is-invalid" %>
+      <% else %>
+        <% website_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :website %>
+    <!-- Input for website start -->
+    <%= f.text_area :website, class: website_class, placeholder: "Enter website" %>
+    <!-- Input for website end -->
+    <% if website_was_invalid %>
+      <% winery.errors.full_messages_for(:website).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for website end -->
+  <!-- Label and input for region_id start -->
+  <div class="form-group">
+    <% region_class = "form-control" %>
+    <% region_was_invalid = winery.errors.include?(:region) %>
+
+    <% if was_validated %>
+      <% if region_was_invalid %>
+        <% region_class << " is-invalid" %>
+      <% else %>
+        <% region_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :region_id %>
+    <!-- Input for region_id start -->
+    <%= f.number_field :region_id, class: region_class, placeholder: "Enter region" %>
+    <!-- Input for region_id end -->
+    <% if region_was_invalid %>
+      <% winery.errors.full_messages_for(:region).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for region_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
